@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productivity Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🗓️ Productivity Tracker</h1>
+
+    <form id="taskForm">
+      <input type="text" id="task" placeholder="Enter Task" required />
+      <input type="number" id="hours" placeholder="Hours"  min="0" max="14" step="1" required />
+      <button type="submit">Add Entry</button>
+    </form>
+
+    <h2>📅 Daily Entries</h2>
+    <div id="entries"></div>
+
+    <h2>📊 Weekly Activity</h2>
+    <canvas id="hoursChart" width="400" height="150"></canvas>
+
+    <h2>📆 Contribution Calendar</h2>
+    <div id="calendar"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
