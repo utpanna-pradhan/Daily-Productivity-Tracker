@@ -7,7 +7,7 @@ const chartCtx = document.getElementById("hoursChart").getContext("2d");
 
 // Helper to format date as dd-mm-yy
 function formatDate(dateStr) {
-  const [y, m, d] = dateStr.split("-");
+  const [y, m, d] = dateStr.split("-"); 
   return `${d}-${m}-${y.slice(2)}`;
 }
 
@@ -64,10 +64,13 @@ function renderCalendar() {
     box.textContent = date.getDate();
     box.title = formatDate(dateStr);
 
-    const entry = entries.find(e => e.date === dateStr);
-    if (entry) {
-      box.classList.add("logged");
-    } else if (date < new Date(getTodayDate())) {
+    // const entry = entries.find(e => e.date === dateStr);
+    const entry = entries.find(e => new Date(e.date).toDateString() === date.toDateString());
+   if (entry) {
+  console.log("Logging for", dateStr); // DEBUG
+  box.classList.add("logged");
+}
+    else if (date < new Date(getTodayDate())) {
       box.classList.add("missed");
     }
 
